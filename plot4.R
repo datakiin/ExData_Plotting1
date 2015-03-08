@@ -43,23 +43,17 @@ head(subData$DT)
 
 # Create plot 4
 default.par <- par()
-png(file = "plot4.png", bg = "transparent",
-    width = 480, height = 480, units = "px", type = "windows")
+png(file = "plot4.png", bg = "transparent", width = 480, height = 480, units = "px",
+    type = "windows")
 par(mfrow = c(2,2))
 plot(subData$DT, subData$Global_active_power, type = "l",
-     ylab = "Global Active Power (kilowatts)",
-     xlab = "\n")
-plot(subData$DT, subData$Voltage,
-     xlab = "datetime", ylab = "Voltage",
-     type = "l")
-plot(subData$DT, subData$Sub_metering_1, type = "l",
-     col = "black",
-     ylab = "Energy sub metering",
-     xlab = "\n")
+     ylab = "Global Active Power (kilowatts)", xlab = "\n")
+plot(subData$DT, subData$Voltage, xlab = "datetime", ylab = "Voltage", type = "l")
+plot(subData$DT, subData$Sub_metering_1, type = "l", col = "black", 
+     ylab = "Energy sub metering", xlab = "\n")
 lines(subData$DT, subData$Sub_metering_2, type = "l", col = "red")
 lines(subData$DT, subData$Sub_metering_3, type = "l", col = "blue")
 legend("topright", col = c("black", "red", "blue"),
-       legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),
-       lty = c(1,1))
+       legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), lty = c(1,1))
 plot(subData$DT, subData$Global_reactive_power, xlab = "datetime", type = "l")
 dev.off()
